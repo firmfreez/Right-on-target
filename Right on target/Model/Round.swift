@@ -8,6 +8,36 @@
 import Foundation
 import UIKit
 
+
+// MARK: - ENUM-ы
+enum RoundType {
+    case Slider(minValue: Int, maxValue: Int, roundsCount: Int)
+    case Color(roundsCount: Int)
+    
+    func getRoundsCount() -> Int {
+        var rCount = 0
+        
+        switch self {
+            case let .Slider(_, _, roundsCount):
+                rCount = roundsCount
+            case let .Color(roundsCount):
+                rCount = roundsCount
+        }
+        
+        return rCount
+    }
+    
+    func getRoundInstance<T: RoundProtocol>() -> T {
+        switch self {
+        case let .Slider(minValue, maxValue, _):
+            return SliderRound(minSecretValue: minValue, maxSecretValue: maxValue) as! T
+        case .Color:
+            return ColorRound() as! T
+        }
+    }
+}
+
+
 // MARK: - Протоколы
 protocol RoundProtocol {
     associatedtype Generator: GeneratorProtocol
@@ -62,7 +92,7 @@ class ColorRound: RoundProtocol {
     }
     
     func calculateScore(with: Generator.ValueType) {
-        if currentSecretValue == with {
+        if currentSecretValue.colorValue == with.colorValue {
             score += 1
         }
     }

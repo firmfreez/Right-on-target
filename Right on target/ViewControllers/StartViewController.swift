@@ -11,14 +11,17 @@ protocol GameControllersProtocol {}
 
 class StartViewController: UIViewController {
     
+    // Типы доступных игр
     enum GameControllers: String {
         case slider = "SliderViewController"
         case color = "ColorViewController"
     }
     
+    // Ссылки на контроллеры с доступными играми
     private weak var sliderGame: SliderViewController? = nil
     private weak var colorGame: ColorViewController? = nil
     
+    // Показывает игру со слайдером по нажатии на кнопку "Slider"
     @IBAction func showSliderGame() {
         if sliderGame == nil {
             sliderGame = getGameController(game: .slider)
@@ -29,6 +32,7 @@ class StartViewController: UIViewController {
         })
     }
     
+    // Показывает игру с цветами по нажатии на кнопку "Color"
     @IBAction func showColorGame() {
         if colorGame == nil {
             colorGame = getGameController(game: .color)
@@ -39,6 +43,7 @@ class StartViewController: UIViewController {
         })
     }
     
+    // Возвращает(Инициализирует) контроллер в зависимости от типа игры
     private func getGameController<T: GameControllersProtocol>(game: GameControllers) -> T {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         return storyBoard.instantiateViewController(identifier: game.rawValue) as! T

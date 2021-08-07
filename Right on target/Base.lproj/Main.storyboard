@@ -135,9 +135,8 @@
                                     <action selector="closeGame" destination="mlX-or-l6T" eventType="touchUpInside" id="nBr-2o-WM0"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Цвет" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1Z-9P-Qrb">
-                                <rect key="frame" x="412" y="29" width="39" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цвет" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1Z-9P-Qrb">
+                                <rect key="frame" x="429" y="20" width="38.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -151,6 +150,9 @@
                                         <state key="normal" title="Вариант 1">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="checkButton:" destination="mlX-or-l6T" eventType="touchUpInside" id="J7I-Ge-QUE"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0J-dx-d4y">
                                         <rect key="frame" x="111" y="0.0" width="73" height="30"/>
@@ -158,6 +160,9 @@
                                         <state key="normal" title="Вариант 2">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="checkButton:" destination="mlX-or-l6T" eventType="touchUpInside" id="6HX-sD-pdl"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TE-hp-MgP">
                                         <rect key="frame" x="224" y="0.0" width="74" height="30"/>
@@ -165,6 +170,9 @@
                                         <state key="normal" title="Вариант 3">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="checkButton:" destination="mlX-or-l6T" eventType="touchUpInside" id="P3L-Aa-bBO"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNA-4c-ytF">
                                         <rect key="frame" x="338" y="0.0" width="74" height="30"/>
@@ -172,6 +180,9 @@
                                         <state key="normal" title="Вариант 4">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="checkButton:" destination="mlX-or-l6T" eventType="touchUpInside" id="qHo-rh-w0F"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -181,10 +192,19 @@
                         <constraints>
                             <constraint firstItem="heT-DA-Smn" firstAttribute="centerX" secondItem="HmS-l8-PpO" secondAttribute="centerX" id="0d9-Pc-k7Z"/>
                             <constraint firstItem="eR2-Wp-yi2" firstAttribute="top" secondItem="1WL-K1-Pyh" secondAttribute="top" constant="20" id="GNq-BB-hdb"/>
+                            <constraint firstItem="b1Z-9P-Qrb" firstAttribute="centerX" secondItem="HmS-l8-PpO" secondAttribute="centerX" id="RSY-cD-942"/>
                             <constraint firstItem="eR2-Wp-yi2" firstAttribute="leading" secondItem="1WL-K1-Pyh" secondAttribute="leading" constant="10" id="T67-Dl-bqv"/>
+                            <constraint firstItem="b1Z-9P-Qrb" firstAttribute="top" secondItem="1WL-K1-Pyh" secondAttribute="top" constant="20" id="kKo-1h-Ae9"/>
                             <constraint firstItem="heT-DA-Smn" firstAttribute="centerY" secondItem="HmS-l8-PpO" secondAttribute="centerY" id="zh9-K8-q4f"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="button1" destination="6iE-gs-J00" id="hbC-5c-aZW"/>
+                        <outlet property="button2" destination="v0J-dx-d4y" id="x7H-pR-dsd"/>
+                        <outlet property="button3" destination="3TE-hp-MgP" id="gy7-g6-vgm"/>
+                        <outlet property="button4" destination="xNA-4c-ytF" id="7c4-Pw-urD"/>
+                        <outlet property="label" destination="b1Z-9P-Qrb" id="nIK-HR-2mX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PVG-dh-ueF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

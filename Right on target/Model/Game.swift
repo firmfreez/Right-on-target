@@ -7,12 +7,6 @@
 
 import Foundation
 
-// MARK: - ENUM-ы
-enum RoundType {
-    case Slider(minValue: Int, maxValue: Int)
-    case Color
-}
-
 // MARK: - Протоколы
 // Протокол игры
 protocol GameProtocol {
@@ -21,51 +15,48 @@ protocol GameProtocol {
     var rounds: [Round] { get }
     var isGameEnded: Bool { get }
     
-    func restartGame(_ type: RoundType)
-    func startNewRound(_ type: RoundType)
+    func restartGame()
+    func startNewRound()
 }
 
 // MARK: - Классы
 // Класс игры
 class Game<T: RoundProtocol>: GameProtocol {
-    var rounds: [T]
-    private var lastRound: Int
+    private var currentRoundType: RoundType
     
+    var rounds: [T]
     var isGameEnded: Bool {
-        if rounds.count >= lastRound {
+        if rounds.count >= currentRoundType.getRoundsCount() {
             return true
         } else {
             return false
         }
     }
-    
 
-    init?(minValue: Int, maxValue: Int, rounds: Int) where T == SliderRound {
+    init(_ type: RoundType) {
         self.rounds = []
-        lastRound = rounds
-        startNewRound(.Slider(minValue: minValue, maxValue: maxValue))
+        currentRoundType = type
+        startNewRound()
     }
     
     
-    func startNewRound(_ type: RoundType) {
-        switch type {
-        case let .Slider(minValue, maxValue):
-            // TODO: Пофиксить. Не нравится кастование к T
-            rounds.append(SliderRound(minSecretValue: minValue, maxSecretValue: maxValue) as! T)
-        case .Color:
-            rounds.append(ColorRound() as! T)
-        }
+    func startNewRound() {
+        rounds.append(currentRoundType.getRoundInstance())
     }
     
     
-    func restartGame(_ type: RoundType) {
+    func restartGame() {
         rounds = []
-        startNewRound(type)
+        startNewRound()
     }
     
     
     func getCurrentSecretValue() -> T.Generator.ValueType? {
         return rounds.last?.currentSecretValue
+    }
+    
+    func getRandomValue() -> T.Generator.ValueType? {
+        return rounds.last?.generator.generateValue()
     }
     
     func updateRoundScore(with: T.Generator.ValueType) {

@@ -12,7 +12,6 @@ import UIKit
 class SliderViewController: UIViewController, GameControllersProtocol {
 
     // MARK: - Переменные
-    
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var label: UILabel!
     // сущность игры
@@ -23,7 +22,7 @@ class SliderViewController: UIViewController, GameControllersProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        game = Game(minValue: 1, maxValue: 50, rounds: 5)
+        game = Game(.Slider(minValue: 1, maxValue: 50, roundsCount: 5))
         updateLabelText(String(game.getCurrentSecretValue() ?? 0))
     }
 
@@ -35,11 +34,9 @@ class SliderViewController: UIViewController, GameControllersProtocol {
 
         if game.isGameEnded {
             showAlert(game.getGameScore())
-            // TODO: Пофиксить (Не нравится, что тут тоже надо min и max value передавать)
-            
-            game.restartGame(.Slider(minValue: 1, maxValue: 50))
+            game.restartGame()
         } else {
-            game.startNewRound(.Slider(minValue: 1, maxValue: 50))
+            game.startNewRound()
         }
 
         updateLabelText(String(game.getCurrentSecretValue() ?? 0))

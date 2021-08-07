@@ -22,7 +22,7 @@ protocol SliderGenerator: GeneratorProtocol where ValueType == Int {
     func setRange(from: ValueType, to: ValueType) -> Bool
 }
 
-protocol ColorGenerator: GeneratorProtocol where ValueType == UIColor {
+protocol ColorGenerator: GeneratorProtocol where ValueType == (colorValue: UIColor, hexValue: String?) {
     var hexedColor: String? { get }
 }
 
@@ -58,7 +58,7 @@ class SimpleIntGenerator: SliderGenerator {
 class SimpleColorGenerator: ColorGenerator {
     var hexedColor: String? = nil
     
-    func generateValue() -> UIColor {
+    func generateValue() -> (colorValue: UIColor, hexValue: String?) {
         let randomRed = CGFloat((1...255).randomElement()!)
         let randomBlue = CGFloat((1...255).randomElement()!)
         let randomGreen = CGFloat((1...255).randomElement()!)
@@ -67,6 +67,6 @@ class SimpleColorGenerator: ColorGenerator {
         let hexGreen = String(format: "%02X", Int(randomGreen.rounded()))
         
         hexedColor = "#\(hexRed + hexBlue + hexGreen)"
-        return UIColor(red: randomRed / 255, green: randomGreen / 255, blue: randomBlue / 255, alpha: 1.0)
+        return (UIColor(red: randomRed / 255, green: randomGreen / 255, blue: randomBlue / 255, alpha: 1.0), hexedColor)
     }
 }
