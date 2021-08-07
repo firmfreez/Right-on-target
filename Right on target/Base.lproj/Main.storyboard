@@ -17,23 +17,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kCa-rB-UGM">
-                                <rect key="frame" x="260" y="192" width="63" height="30"/>
+                                <rect key="frame" x="245" y="192" width="63" height="30"/>
                                 <state key="normal" title="Слайдер"/>
                                 <connections>
                                     <action selector="showSliderGame" destination="9t3-nN-SZd" eventType="touchUpInside" id="tdL-KP-DmR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9FH-QE-gob">
-                                <rect key="frame" x="573" y="192" width="43" height="30"/>
+                                <rect key="frame" x="588" y="192" width="43" height="30"/>
                                 <state key="normal" title="Цвета"/>
                                 <connections>
                                     <action selector="showColorGame" destination="9t3-nN-SZd" eventType="touchUpInside" id="k9V-SX-6rX"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите режим игры и начните играть!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqG-NN-naF">
-                                <rect key="frame" x="348" y="167" width="200.5" height="80"/>
+                                <rect key="frame" x="348" y="167" width="200" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="XD0-rY-ptg"/>
+                                    <constraint firstAttribute="width" constant="200" id="U3Q-T1-sYH"/>
+                                    <constraint firstAttribute="height" constant="80" id="WTJ-gB-2Ij"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -43,14 +44,12 @@
                         <viewLayoutGuide key="safeArea" id="JM3-5h-Ylt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="gqG-NN-naF" firstAttribute="centerX" secondItem="8qQ-pw-vaN" secondAttribute="centerX" id="1YK-Gq-JNW"/>
-                            <constraint firstItem="kCa-rB-UGM" firstAttribute="centerY" secondItem="8qQ-pw-vaN" secondAttribute="centerY" id="Owi-6c-bTj"/>
-                            <constraint firstItem="gqG-NN-naF" firstAttribute="centerY" secondItem="8qQ-pw-vaN" secondAttribute="centerY" id="Tcg-Wr-uNK"/>
-                            <constraint firstItem="9FH-QE-gob" firstAttribute="centerY" secondItem="8qQ-pw-vaN" secondAttribute="centerY" id="X7L-aw-u7i"/>
-                            <constraint firstItem="9FH-QE-gob" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gqG-NN-naF" secondAttribute="trailing" constant="8" symbolic="YES" id="a6G-VC-2qc"/>
-                            <constraint firstItem="JM3-5h-Ylt" firstAttribute="trailing" secondItem="9FH-QE-gob" secondAttribute="trailing" constant="236" id="knb-V3-M90"/>
-                            <constraint firstItem="gqG-NN-naF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kCa-rB-UGM" secondAttribute="trailing" constant="8" symbolic="YES" id="p2r-Ij-nG6"/>
-                            <constraint firstItem="kCa-rB-UGM" firstAttribute="leading" secondItem="JM3-5h-Ylt" secondAttribute="leading" constant="216" id="wOo-Xj-lEQ"/>
+                            <constraint firstItem="9FH-QE-gob" firstAttribute="centerY" secondItem="8qQ-pw-vaN" secondAttribute="centerY" id="8g5-5s-8oO"/>
+                            <constraint firstItem="gqG-NN-naF" firstAttribute="centerY" secondItem="8qQ-pw-vaN" secondAttribute="centerY" id="Fma-6v-r2u"/>
+                            <constraint firstItem="gqG-NN-naF" firstAttribute="leading" secondItem="kCa-rB-UGM" secondAttribute="trailing" constant="40" id="PMx-60-smV"/>
+                            <constraint firstItem="gqG-NN-naF" firstAttribute="centerX" secondItem="8qQ-pw-vaN" secondAttribute="centerX" id="VoC-Zz-YBk"/>
+                            <constraint firstItem="9FH-QE-gob" firstAttribute="leading" secondItem="gqG-NN-naF" secondAttribute="trailing" constant="40" id="WUO-i4-JKv"/>
+                            <constraint firstItem="kCa-rB-UGM" firstAttribute="centerY" secondItem="8qQ-pw-vaN" secondAttribute="centerY" id="rwL-OT-SgP"/>
                         </constraints>
                     </view>
                 </viewController>
